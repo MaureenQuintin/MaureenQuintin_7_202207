@@ -78,7 +78,6 @@ exports.modifyPost = (req, res, next) => {
 
 //  Supression d'un post
  exports.deletePost = (req, res, next) => {
-  console.log('r', req.auth.userId);
   Post.findOne({ _id: req.params.id})
       .then((post) => {
         // Vérification userID

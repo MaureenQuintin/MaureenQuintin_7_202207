@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import Logout from './Log/Logout';
-import { useState } from "react";
 import { UidContext } from './AppContext';
 
 const NavBar = () => {

@@ -10,5 +10,6 @@ const validatorPassword = require('../middleware/validatorPassword');
 router.post('/signup', validatorEmail, validatorPassword, userCtrl.signup);
 router.post('/login', limiter.limiter, userCtrl.login);
 router.get('/logout', userCtrl.logout);
+router.get('/:id', userCtrl.userInfo);
 
 module.exports = router;

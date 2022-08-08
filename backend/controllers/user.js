@@ -65,3 +65,9 @@ exports.logout = (req, res) => {
   res.cookie('jwt', '', {expiresIn: '24h' });
   res.status(200).json({message: 'Utilisateur déconnecté !'})
 }
+
+exports.userInfo = (req, res) => {
+  User.findOne({ _id: req.params.id }).select('-password').then(user => {
+    res.send(user);
+  });
+};

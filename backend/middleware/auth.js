@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 // Vérification que l'user est bien connecté
 module.exports = (req, res, next) => {
    try {
-        const token = req.headers.authorization.split(' ')[1]; // Récupération du token de l'user
+        const token = req.cookies.jwt;  // Récupération du token de l'user
         const decodedToken = jwt.verify(token, `${process.env.TOKEN}`); // Vérification de la validité du token
         const userId = decodedToken.userId; // Récupération de l'userID dans le token
         req.auth = {
@@ -10,6 +10,7 @@ module.exports = (req, res, next) => {
         };
         next();
    } catch(error) {
+    console.log('err', error);
        res.status(401).json({ error });
    }
 };
