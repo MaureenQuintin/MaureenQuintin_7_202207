@@ -20,7 +20,7 @@ const NewPostForm = () => {
 
     const handlePost = async () => {
         if (!titlePost || !textPost) {
-            errorForm.innerHTML = 'Le titre et le texte du post ne doivent pas être vides'
+            errorForm.innerHTML = 'Le titre et le texte du post<br> ne doivent pas être vides'
         } else {
             const data = new FormData();
             data.append('userId', userData._id);
@@ -50,6 +50,7 @@ const NewPostForm = () => {
         setTextPost("");
         setImagePost("");
         setFile("");
+        errorForm.innerHTML = '';
       };
 
   return (

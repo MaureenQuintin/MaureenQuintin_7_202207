@@ -8,8 +8,8 @@ import DeleteCard from "./DeleteCard";
 const Card = ({ post }) => {
 
     const [isUpdated, setIsUpdated] = useState(false);
-    const [textUpdate, setTextUpdate] = useState(null);
-    const [titleUpdate, setTitleUpdate] = useState(null);
+    const [textUpdate, setTextUpdate] = useState(post.text);
+    const [titleUpdate, setTitleUpdate] = useState(post.title);
     const [postUser, setPostUser] = useState(null);
     const dispatch = useDispatch();
     const user = useSelector((state) => state.userReducer);
@@ -17,7 +17,7 @@ const Card = ({ post }) => {
 
     const updateItem = () => {
         const errorForm = document.querySelector('.errorInUpdate');
-        if (!textUpdate || !titleUpdate) {
+        if (textUpdate === '' || titleUpdate === '') {
             errorForm.innerHTML = 'Le titre et le texte du post ne doivent pas être vides'
         } else {
             if (textUpdate) {

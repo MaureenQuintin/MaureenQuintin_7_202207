@@ -38,4 +38,14 @@
       text-align: center;
     }
   }
+
+  .main-not-connected {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    margin-top: 20px;
+  }
 }
