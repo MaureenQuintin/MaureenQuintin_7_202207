@@ -5,37 +5,19 @@ const fs = require('fs');
 
 // Création d'un post
 exports.createPost = (req, res, next) => {
-  const postObject = req.file ? {
-    ...JSON.parse(req.body.post),
-    imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
-} : { ...JSON.parse(req.body.post) };
 
-  console.log(postObject);
-    const post = new Post({
-        ...postObject
-    });
+  const postObject = new Post({
+    userId: req.body.userId,
+    text: req.body.text,
+    title: req.body.title
+  })
+
+  postObject.imageUrl = req.file ? `${req.protocol}://${req.get('host')}/images/${req.file.filename}` : '';
   
-    post.save()
+    postObject.save()
     .then(() => { res.status(201).json({message: 'Post créé !'})})
     .catch(error => { res.status(400).json( { error })})
  };
-
-//  Récupération d'un post en fonction de l'ID
-exports.getOnePost = (req, res, next) => {
-  Post.findOne({
-    _id: req.params.id
-  }).then(
-    (post) => {
-      res.status(200).json(post);
-    }
-  ).catch(
-    (error) => {
-      res.status(404).json({
-        error: error
-      });
-    }
-  );
-};
 
 // Modification d'un post
 exports.modifyPost = (req, res, next) => {
@@ -43,29 +25,16 @@ exports.modifyPost = (req, res, next) => {
         ...JSON.parse(req.body.post),
         imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     } : { ...JSON.parse(req.body.post) };
-
     Post.findOne({_id: req.params.id})
     .then((post) => {
       // Vérification userID
-      console.log(postObject.userId),
       User.findOne({_id: postObject.userId})
       .then((user) => {
-        console.log(user);
         if ((post.userId === postObject.userId) || user.isAdmin) {
                 delete postObject.userId;
-                if(post.imageUrl !== undefined){
-                  // Supression si image
-                  const filename = post.imageUrl.split('/images/')[1];
-                  fs.unlink(`images/${filename}`, () => {
-                      Post.updateOne({ _id: req.params.id}, { ...postObject, _id: req.params.id})
-                      .then(() => res.status(200).json({message : 'Post modifié!'}))
-                      .catch(error => res.status(400).json({ error }));
-                  })
-                } else {
-                  Post.updateOne({ _id: req.params.id}, { ...postObject, _id: req.params.id})
-                      .then(() => res.status(200).json({message : 'Post modifié!'}))
-                      .catch(error => res.status(400).json({ error }));
-                }
+                Post.updateOne({ _id: req.params.id}, { ...postObject, _id: req.params.id})
+                    .then(() => res.status(200).json({message : 'Post modifié!'}))
+                    .catch(error => res.status(400).json({ error }));
               } else {
                 res.status(403).json({ message : 'Unauthorized request'});
               }
@@ -83,7 +52,6 @@ exports.modifyPost = (req, res, next) => {
         // Vérification userID
         User.findOne({_id: req.auth.userId})
         .then((user) => {
-          console.log('u', user);
           if ((post.userId === req.auth.userId) || user.isAdmin) {
             if(post.imageUrl !== undefined){
               // Supression si image
@@ -110,7 +78,7 @@ exports.modifyPost = (req, res, next) => {
 
 // Récupération de tous les posts
 exports.getAllPost = (req, res, next) => {
-  Post.find().then(
+  Post.find().sort({createdAt: -1}).then(
     (post) => {
       res.status(200).json(post);
     }

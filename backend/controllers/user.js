@@ -1,6 +1,8 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const dotenv = require("dotenv");
+const mongoose = require("mongoose");
+
 dotenv.config();
 
 const User = require('../models/User');
@@ -67,7 +69,14 @@ exports.logout = (req, res) => {
 }
 
 exports.userInfo = (req, res) => {
-  User.findOne({ _id: req.params.id }).select('-password').then(user => {
-    res.send(user);
-  });
+  if (mongoose.Types.ObjectId.isValid(req.params.id)) {
+    User.findOne({ _id: req.params.id }).select('-password').then(user => {
+      res.send(user);
+    });
+  }
+};
+
+exports.getAllUsers = async (req, res) => {
+  const users = await User.find().select("-password");
+  res.status(200).json(users);
 };

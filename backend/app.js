@@ -41,7 +41,7 @@ app.use((req, res, next) => {
 app.use(cookieParser());
 
 app.use('/api/post', postRoutes);
-app.use('/api/auth', userRoutes);
+app.use('/api/user', userRoutes);
 
 // jwt
 app.get('/jwtid', auth.requireAuth, (req, res) => {

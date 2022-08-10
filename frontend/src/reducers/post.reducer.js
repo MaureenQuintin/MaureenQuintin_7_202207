@@ -1,7 +1,9 @@
 import {
-    GET_POSTS,
-    LIKE_POST,
-    UNLIKE_POST,
+  GET_POSTS,
+  LIKE_POST,
+  UNLIKE_POST,
+  UPDATE_POST,
+  DELETE_POST,
   } from "../actions/post.actions";
   
   const initialState = {};
@@ -30,6 +32,17 @@ import {
           }
           return post;
         });
+      case UPDATE_POST:
+        return state.map((post) => {
+          if (post._id === action.payload.id) {
+            return {
+              ...post,
+              updatedPost: action.payload.post,
+            };
+          } else return post;
+        });
+      case DELETE_POST:
+        return state.filter((post) => post._id !== action.payload.id);
       default:
         return state;
     }

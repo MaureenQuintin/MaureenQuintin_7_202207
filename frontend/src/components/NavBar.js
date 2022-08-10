@@ -10,11 +10,12 @@ const NavBar = () => {
         <div className='logo'>
             <NavLink exact="true" to="/">
                 <div className='logo'>
-                    <img src='' alt='logo Groupomania' width='100px' height='50px'></img>
+                    <img src='./img/logo.png' alt='logo Groupomania' width='60px' height='60px'></img>
+                    <h1 className='nav-tilte'>Groupomania</h1>
                 </div>  
             </NavLink>
         </div>
-       <div>
+       <div className='logout-container'>
         {uid ? (
             <Logout />
         ) : (

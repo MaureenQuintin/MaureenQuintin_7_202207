@@ -1,0 +1,41 @@
+.home {
+  display: flex;
+  max-width: 1200px;
+  overflow: hidden;
+  margin: 58px auto 50px;
+  position: relative;
+
+  @media screen and(max-width: 990px) {
+    margin: 58px 20px 50px
+  }
+
+  @media screen and(max-width: 590px) {
+    margin: 58px 8px 50px;
+  }
+
+  .main {
+    width: 100%;
+    height: 100%;
+    margin: 20px;
+
+    @media screen and(max-width: 990px) {
+      margin: 0px;
+    }
+  
+    @media screen and(max-width: 590px) {
+      margin: 0px;
+    }
+
+    .lastNews-text {
+      padding: 30px 0 30px 0;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    .home-header {
+      margin: 0 auto 12px;
+      text-align: center;
+    }
+  }
+}

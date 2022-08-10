@@ -13,7 +13,7 @@ const Logout = () => {
     const logout = async () => {
         await axios({
             method: "get",
-            url: `${process.env.REACT_APP_API_URL}api/auth/logout`,
+            url: `${process.env.REACT_APP_API_URL}api/user/logout`,
             withCredentials: true,
         })
         .then(() => {
@@ -25,7 +25,7 @@ const Logout = () => {
 
   return (
     <li onClick={logout}>
-        <img src='./img/icons/logout.svg' alt='icone déconnexion'></img>
+        <img src='./img/icons/logout.svg' alt='icone déconnexion' width='26px' height='26px'></img>
     </li>
   )
 }
