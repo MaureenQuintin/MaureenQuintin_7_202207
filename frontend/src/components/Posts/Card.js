@@ -14,8 +14,13 @@ const Card = ({ post }) => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.userReducer);
     const users = useSelector((state) => state.usersReducer);
+    const [postModified, setPostModified] = useState(false);
+    const [dateUpdated, setDateUpdated] = useState(post.updatedAt);
+    
 
     const updateItem = () => {
+        let postOldText = post.text;
+        let postOldTitle = post.title;
         const errorForm = document.querySelector('.errorInUpdate');
         if (textUpdate === '' || titleUpdate === '') {
             errorForm.innerHTML = 'Le titre et le texte du post ne doivent pas être vides'
@@ -26,12 +31,21 @@ const Card = ({ post }) => {
             if (titleUpdate) {
                 post.title = titleUpdate;
             }
-            if (titleUpdate || textUpdate) {
+            if ((titleUpdate || textUpdate) && ((titleUpdate !== postOldTitle) || (textUpdate !== postOldText))) {
                 dispatch(updatePost(post._id, post));
+                postOldText = textUpdate;
+                postOldTitle = titleUpdate;
+                setDateUpdated(Date.now());
+                setPostModified(true);
             }
             setIsUpdated(false);
         }
     };
+
+    const openUpdate = () => {
+        setPostModified(false);
+        setIsUpdated(true);
+    }
 
     const handleUserTyping = (type, value) => {
         const errorForm = document.querySelector('.errorInUpdate');
@@ -65,11 +79,14 @@ const Card = ({ post }) => {
                     )}
                 </div>
                 <div>
-                {post.updatedAt === post.createdAt && (
-                    <span>Créé le : {timestampParser(Date.now())}</span>
+                {(dateUpdated === post.createdAt && !postModified) && (
+                    <span>Créé le : {timestampParser(post.createdAt)}</span>
                 )}
-                {post.updatedAt !== post.createdAt && (
-                    <span>Modifié le : {timestampParser(Date.now())}</span>
+                {(dateUpdated !== post.createdAt && !postModified) && (
+                    <span>Modifié le : {timestampParser(dateUpdated)}</span>
+                )}
+                {(postModified) &&  (
+                    <span>Modifié le : {timestampParser(dateUpdated)}</span>
                 )}
                 </div>
             </div>
@@ -109,7 +126,7 @@ const Card = ({ post }) => {
                 </div>
                 {((user._id === post.userId) || user.isAdmin) && (
                 <div className="button-container">
-                    <div onClick={() => setIsUpdated(!isUpdated)}>
+                    <div onClick={() => openUpdate()}>
                     <img src="./img/icons/edit.svg" alt="edit" />
                     </div>
                     < DeleteCard id={post._id} />

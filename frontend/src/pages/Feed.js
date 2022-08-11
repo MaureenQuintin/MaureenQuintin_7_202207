@@ -1,5 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react'
-import { Navigate } from 'react-router';
+import React, { useContext } from 'react'
 import { UidContext } from "../components/AppContext";
 import NewPostForm from '../components/Posts/NewPostForm'
 import Thread from '../components/Thread'

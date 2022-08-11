@@ -10,7 +10,7 @@ const NavBar = () => {
         <div className='logo'>
             <NavLink exact="true" to="/">
                 <div className='logo'>
-                    <img src='./img/logo.png' alt='logo Groupomania' width='60px' height='60px'></img>
+                    <img src='./img/logo-nav.png' alt='logo Groupomania' width='60px' height='60px'></img>
                     <h1 className='nav-tilte'>Groupomania</h1>
                 </div>  
             </NavLink>
