@@ -1,17 +1,17 @@
 Comment installer le site ?
 
-Copier le lien du repository.
-Ouvrir un terminal.
-    git clone + coller le lien du repository.
+    Copier le lien du repository
+    Ouvrir un terminal
+    Commande git clone + coller le lien du repository
 
 
 Installation du backend
 
 Dans un terminal 
 
-cd backend.
-NPM install.
-Nodemon.
+    cd backend
+    NPM install
+    Nodemon
 
 
 Installation de la Base de données (MongoDB)
@@ -32,9 +32,9 @@ Installation du frontend
 
 Dans un terminal
 
-cd frontend.
-NPM install.
-NPM start.
+    cd frontend
+    NPM install
+    NPM start
 
 
 Fonctionnement global du site
