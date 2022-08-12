@@ -1,8 +1,8 @@
 Comment installer le site ?
 
-Copier le lien du repository.
-Ouvrir un terminal.
-Écrire la commande git clone + coller le lien du repository.
+    Copier le lien du repository.
+    Ouvrir un terminal.
+    Écrire la commande git clone + coller le lien du repository.
 
 
 Installation du backend
