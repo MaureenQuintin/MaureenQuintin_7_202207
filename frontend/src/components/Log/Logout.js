@@ -24,7 +24,7 @@ const Logout = () => {
     }
 
   return (
-    <li onClick={logout}>
+    <li aria-label='Déconnexion' onClick={logout}>
         <img src='./img/icons/logout.svg' alt='icone déconnexion' width='26px' height='26px'></img>
     </li>
   )

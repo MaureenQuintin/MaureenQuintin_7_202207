@@ -33,15 +33,15 @@ const LoginForm = () => {
 
   return (
     <form action="" onSubmit={handleLogin} id="sign-up-form">
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email" aria-label='Email'>Email</label>
         <br />
         <input type="text" name="email" id="email" onChange={(e) => setEmail (e.target.value)} value={email} />
         <br /><br />
-        <label htmlFor="password">Mot de passe</label>
+        <label htmlFor="password" aria-label='Mot de passe'>Mot de passe</label>
         <br />
         <input type="password" name="password" id="password" onChange={(e) => setPassword (e.target.value)} value={password} />
         <br /><br />
-        <input type="submit" value="Se connecter" />
+        <input type="submit" aria-label='Se connecter' value="Se connecter" />
         <br /><br />
         <div className='error'></div>
     </form>

@@ -26,7 +26,7 @@ const LikeBtn = ({ post }) => {
   return (
     <div className='like-btn'>
         {uid && liked === false && (
-            <img src='../img/icons/heart.svg' alt='like button' onClick={like} />
+            <img src='../img/icons/heart.svg' alt='like button' aria-label='Mettre un like' onClick={like} />
         )}
          {uid && liked === true && (
             <img src='../img/icons/heart-filled.svg' alt='like button filled' onClick={unlike} />

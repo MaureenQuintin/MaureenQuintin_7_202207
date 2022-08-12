@@ -9,8 +9,6 @@ const SignUpForm = () => {
     const [firstname, setFirstName] = useState('');
     const [lastname, setLastName] = useState('');
 
-    // errorForm.innerHTML = "";
-
     const handleRegister = async (e) => {
         e.preventDefault();
 
@@ -49,26 +47,26 @@ const SignUpForm = () => {
             </>
         ) : (
             <form action='' onSubmit={handleRegister} id='sign-up-form'>
-                <label htmlFor="firstname">Prénom</label>
+                <label htmlFor="firstname" aria-label='Prénom'>Prénom</label>
                 <br />
                 <input type="text" name="firstname" id="firstname" required onChange={(e) => setFirstName (e.target.value)} value={firstname} />
                 <br /><br />
-                <label htmlFor="lastname">Nom</label>
+                <label htmlFor="lastname" aria-label='Nom'>Nom</label>
                 <br />
                 <input type="text" name="lastname" id="lastname" required onChange={(e) => setLastName (e.target.value)} value={lastname} />
                 <br /><br />
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email" aria-label='Email'>Email</label>
                 <br />
                 <input type="text" name="email" id="email" required onChange={(e) => setEmail (e.target.value)} value={email} />
                 <br /><br />
-                <label htmlFor="password">Mot de passe</label>
+                <label htmlFor="password" aria-label='Mot de passe'>Mot de passe</label>
                 <br />
                 <input type="password" name="password" id="password" required onChange={(e) => setPassword (e.target.value)} value={password} />
                 <br /><br />
                 <input type="checkbox" id="terms" required />
-                <label htmlFor="terms">J'accepte les <a href='#'>conditions générales</a></label>
+                <label htmlFor="terms" aria-checked="J'accepte les conditions d'utilisation">J'accepte les <a href='#'>conditions générales</a></label>
                 <br /><br />
-                <input type="submit" value='Valider inscription' />
+                <input type="submit" aria-label='Valider inscription' value='Valider inscription' />
                 <br /><br />
                 <div className='errContainer error'></div>
             </form>

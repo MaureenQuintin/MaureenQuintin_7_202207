@@ -63,14 +63,14 @@ const NewPostForm = () => {
                  <textarea
                     name="title"
                     id="title"
-                    placeholder='Titre du post'
+                    placeholder='Titre du post' aria-label='Titre du post' aria-placeholder='Titre du post'
                     onChange={(e) => handleUserTyping('title', e.target.value)}
                     value={titlePost}
                 />
                 <textarea className='text-area'
                     name="text"
                     id="text"
-                    placeholder='Contenu du post'
+                    placeholder='Contenu du post' aria-label='Contenu du post' role="textbox" aria-multiline="true"
                     onChange={(e) => handleUserTyping('text', e.target.value)}
                     value={textPost}
                 />
@@ -94,8 +94,8 @@ const NewPostForm = () => {
                 <div className='footer-form'>
                     <div className='icon'>
                         <>
-                        <img src='./img/icons/picture.svg' alt='pic' />
-                        <input
+                        <img src='./img/icons/picture.svg' alt='Ajouter un fichier' />
+                        <input aria-label='Ajouter une image'
                             type='file'
                             id='file-upload'
                             name='file'
@@ -107,9 +107,9 @@ const NewPostForm = () => {
                     <div className='error errorInCreate'></div>
                     <div className='btn-send'>
                         {titlePost || textPost || imagePost ? (
-                            <button className='cancel' onClick={cancelPost}>Annuler</button>
+                            <button className='cancel' aria-label='Annuler' onClick={cancelPost}>Annuler</button>
                             ) : null}
-                            <button className='send' onClick={handlePost}>Poster</button>
+                            <button className='send' aria-label='Poster' onClick={handlePost}>Poster</button>
                     </div>
                 </div>
             </div>

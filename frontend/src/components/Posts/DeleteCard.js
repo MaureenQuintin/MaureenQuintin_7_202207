@@ -7,7 +7,7 @@ const DeleteCard = (props) => {
   const deleteQuote = () => dispatch(deletePost(props.id));
 
   return (
-    <div
+    <div aria-label="Voulez-vous supprimer ce post ?"
       onClick={() => {
         if (window.confirm("Voulez-vous supprimer ce post ?")) {
           deleteQuote();

@@ -98,17 +98,17 @@ const Card = ({ post }) => {
                 </div>}
             {isUpdated && (
               <div className="update-post">
-                 <textarea
+                 <textarea aria-label='Titre du post'
                     defaultValue={post.title}
                     onChange={(e) => handleUserTyping('title', e.target.value)}
                 />
-                <textarea
+                <textarea aria-label='Contenu du post'
                     defaultValue={post.text}
                     onChange={(e) => handleUserTyping('text', e.target.value)}
                 />
                 <div className='error errorInUpdate'></div>
                 <div className="button-container">
-                  <button className="btn" onClick={updateItem}>
+                  <button className="btn" aria-label='Mettre à jour' onClick={updateItem}>
                     Mettre à jour
                   </button>
                 </div>
