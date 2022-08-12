@@ -23,9 +23,9 @@ Si vous n’utilisez pas les fichiers .env fournis alors il faut importer la bas
 
 Comment importer des données sur MongoDB ? (Via MongoDB Compass)
 
-    Se connecter à cluster.
-    Se rendre sur la collection.
-    Cliquer sur ADD FILE puis ajouter le fichier correspondant à chaque table.
+    Se connecter à cluster
+    Se rendre sur la collection
+    Cliquer sur ADD FILE puis ajouter le fichier correspondant à chaque table
 
 
 Installation du frontend
@@ -43,7 +43,7 @@ Groupomania Network est un réseau social d’entreprise.
 
 Les utilisateurs peuvent s’inscrire et/ou se connecter. 
 
-Ils peuvent créer des posts avec un titre, un texte et une image (facultative). Seul l’utilisateur ayant créer le post peut le modifier ou le supprimer.
+Ils peuvent créer des posts avec un titre, un texte et une image (facultative). Seul l’utilisateur ayant créé le post peut le modifier ou le supprimer.
 
 Il y a également un système de like.
 
