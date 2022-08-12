@@ -1,7 +1,9 @@
-backend/images
+images/*
+!images/.gitkeep
+!images/croissants.jpg1660206083320.jpg
+!images/marketing.jpg1660210954238.jpg
 backend/node_modules
 frontend/node_modules
-.env
 
 
 .DS_Store
