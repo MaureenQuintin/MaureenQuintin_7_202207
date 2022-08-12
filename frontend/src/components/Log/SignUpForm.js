@@ -64,7 +64,7 @@ const SignUpForm = () => {
                 <input type="password" name="password" id="password" required onChange={(e) => setPassword (e.target.value)} value={password} />
                 <br /><br />
                 <input type="checkbox" id="terms" required />
-                <label htmlFor="terms" aria-checked="J'accepte les conditions d'utilisation">J'accepte les <a href='#'>conditions générales</a></label>
+                <label htmlFor="terms" aria-checked="false">J'accepte les <a href='#'>conditions générales</a></label>
                 <br /><br />
                 <input type="submit" aria-label='Valider inscription' value='Valider inscription' />
                 <br /><br />
