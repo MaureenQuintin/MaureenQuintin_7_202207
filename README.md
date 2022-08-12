@@ -23,9 +23,9 @@ Si vous n’utilisez pas les fichiers .env fournis alors il faut importer la bas
 
 Comment importer des données sur MongoDB ? (Via MongoDB Compass)
 
-Se connecter à cluster.
-Se rendre sur la collection.
-Cliquer sur ADD FILE puis ajouter le fichier correspondant à chaque table.
+    Se connecter à cluster.
+    Se rendre sur la collection.
+    Cliquer sur ADD FILE puis ajouter le fichier correspondant à chaque table.
 
 
 Installation du frontend
